@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8">
+    <title>SocialNets - Editar Usuário</title>
+    <link rel="stylesheet" href="/assets/css/bootstrap.css"/>
+  </head>
+  <body>
+    {{ template "header" }}
+
+    <div class="container-fluid">
+      <div class="row mt-4">
+        <div class="col-12">
+          <h3>Editar Dados</h3>
+          <form id="edit-user">
+            <div class="form-group my-3">
+              <label for="name">Nome</label>
+              <input type="text" class="form-control" id="name" name="name" placeholder="Insira o seu nome" value="{{ .Name }}" required="required">
+            </div>
+            <div class="form-group mb-3">
+              <label for="email">Email</label>
+              <input type="text" class="form-control" id="email" name="email" placeholder="Insira o seu email" value="{{ .Email }}" required="required">
+            </div>
+            <div class="form-group mb-4">
+              <label for="nick">Nick</label>
+              <input type="text" class="form-control" id="nick" name="nick" placeholder="Insira o seu nick" value="{{ .Nick }}" required="required">
+            </div>
+            <button type="submit" class="btn btn-info">Atualizar Dados</button>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    {{ template "footer" }}
+    {{ template "scripts" }}
+    <script src="/assets/js/user.js"></script>
+  </body>
+</html>

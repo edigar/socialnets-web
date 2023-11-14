@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>SocialNets - Login</title>
+
+    <link rel="stylesheet" type="text/css" href="/assets/css/login.css">
+</head>
+<body>
+    <div class="container-login">
+        <div>
+            <form id="login">
+                <span>Seja bem vindo!</span>
+                <div>
+                    <input type="text" name="email" id="email" placeholder="Digite seu e-mail" required="required">
+                </div>
+                <div>
+                    <input type="password" name="password" id="password" placeholder="Digite sua senha" required="required">
+                </div>
+                <a href="/criar-usuario">Clieque aqui para criar sua conta</a>
+                <button type="submit" class="btn-login">Login</button>
+            </form>
+        </div>
+    </div>
+    {{ template "scripts" }}
+    <script src="/assets/js/login.js"></script>
+</body>
+</html>

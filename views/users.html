@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>SocialNets - Usuários</title>
+    <link rel="stylesheet" href="/assets/css/bootstrap.css"/>
+</head>
+<body>
+    {{ template "header" }}
+
+    <div class="container-fluid">
+        <div class="row mt-4">
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Usuários encontrados</h5>
+                        {{ range . }}
+                            <p class="card-text">
+                                {{ .Name }} - <a href="/usuario/{{ .Id }}">{{ .Nick }}</a> - Membro desde: {{ .CreatedAt.Format "02/01/2006" }}
+                            </p>
+                        {{ else }}
+                            <p class="card-text">
+                                Nenhum usuário encontrado.
+                            </p>
+                        {{ end }}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    {{ template "footer" }}
+    {{ template "scripts" }}
+</body>
+</html>

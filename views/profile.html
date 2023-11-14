@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <meta charset="UTF-8">
+        <title>SocialNets - Perfil</title>
+        <link rel="stylesheet" href="/assets/css/bootstrap.css"/>
+    </head>
+    <body>
+        {{ template "header" }}
+
+        <div class="container-fluid">
+            <div class="row mt-4">
+                <div class="col-12">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">Meu Perfil</h5>
+                            <h6 class="card-subtitle mb-2 text-muted">
+                                {{ .Name }} - {{ .Nick }} - Membro Desde:
+                                {{ .CreatedAt.Format "02/01/2006" }}
+                            </h6>
+
+                            <p class="card-text">
+                                <a href="#" data-bs-toggle="modal" data-bs-target="#modal-followers">Seguidores: {{ len .Followers }}</a>
+                            </p>
+                            <p class="card-text">
+                                <a href="#" data-bs-toggle="modal" data-bs-target="#modal-following">Seguindo: {{ len .Following }}</a>
+                            </p>
+
+                            <div class="row">
+                                <div class="col-12">
+                                    <a href="/editar-usuario" class="btn btn-info">Editar dados</a>
+                                    <a href="/atualizar-senha" class="btn btn-info">Atualizar senha</a>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row mt-4">
+                <div class="col-12">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">Minhas Publicações</h5>
+                            <p class="card-text">
+                                {{ range .Posts }}
+                                    {{ template "userPost" . }}
+                                {{ else }}
+                                    <p class="text-muted text-center">
+                                        Nenhuma publicação por enquanto...
+                                    </p>
+                                {{ end }}
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <a id="delete-user" class="btn btn-danger mt-5">Excluir conta permanentemente</a>
+
+        </div>
+
+        {{ template "modal-followers" . }}
+        {{ template "modal-following" . }}
+        {{ template "footer" }}
+        {{ template "scripts" }}
+        <script src="/assets/js/posts.js"></script>
+        <script src="/assets/js/user.js"></script>
+    </body>
+</html>
